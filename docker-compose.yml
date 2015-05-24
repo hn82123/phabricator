@@ -1,0 +1,26 @@
+#
+# Optional Volumes:
+#  - /var/phabricator_files - file storage
+#  - /var/repo - code repos
+#
+#
+phabricator:
+    build: .
+    links: 
+        - mysql
+    ports: 
+        - "80:80"
+        - "22:22"
+    volumes: 
+        - "/var/repo"
+        - "/var/phabricator_files"
+    
+# -e MYSQL_ROOT_PASSWORD=my-secret-pw  
+mysql:
+    image: mysql
+    environment:
+        - MYSQL_ROOT_PASSWORD=sk2HEwf582Hfwj
+    volumes:
+        - "/var/lib/mysql"
+
+

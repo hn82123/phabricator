@@ -1,0 +1,19 @@
+AuthorizedKeysCommand /phabricator-ssh-hook.sh
+AuthorizedKeysCommandUser git
+AllowUsers git
+
+# You may need to tweak these options, but mostly they just turn off everything
+# dangerous.
+
+Port 22
+Protocol 2
+PermitRootLogin no
+AllowAgentForwarding no
+AllowTcpForwarding no
+PrintMotd no
+PrintLastLog no
+PasswordAuthentication no
+AuthorizedKeysFile none
+
+PidFile /var/run/sshd-phabricator.pid
+
