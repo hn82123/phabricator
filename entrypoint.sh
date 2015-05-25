@@ -12,7 +12,7 @@ bin/config set "phabricator.base-uri"   "http://phd.emsym.com/"
 bin/config set "storage.local-disk.path" "/var/phabricator_files/"
 
 bin/storage upgrade --force 
-bin/phd start
+su -c "bin/phd start" phd
 
 /usr/sbin/sshd -f /etc/ssh/sshd_config.phabricator
 /usr/sbin/php5-fpm
