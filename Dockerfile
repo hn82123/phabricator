@@ -38,8 +38,8 @@ EXPOSE 80
 RUN rm /etc/nginx/sites-enabled/default
 COPY phabricator.conf /etc/nginx/sites-enabled/phabricator.conf
 # Add user
-RUN echo "phd:x:1000:1000::/nonexistent:/bin/bash" >> /etc/passwd
-RUN echo "git:x:2000:2000::/var/repo:/bin/bash" >> /etc/passwd
+RUN echo "phd:x:1000:65534::/nonexistent:/bin/bash" >> /etc/passwd
+RUN echo "git:x:2000:65534::/var/repo:/bin/bash" >> /etc/passwd
 RUN echo "git ALL=(phd) SETENV: NOPASSWD: /usr/bin/git-upload-pack, /usr/bin/git-receive-pack" >> /etc/sudoers
 RUN mkdir /var/run/sshd 
 
@@ -53,9 +53,9 @@ COPY sshd_config.phabricator /etc/ssh/sshd_config.phabricator
 COPY phabricator-ssh-hook.sh /phabricator-ssh-hook.sh
 
 WORKDIR /var
-RUN mkdir repo phabricator_files && \
-	chown git repo && \
-	chown www-data phabricator_files
+RUN mkdir repo phabricator_files 
+RUN chown -R phd repo && \
+	chown -R www-data phabricator_files
 
 #RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
