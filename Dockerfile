@@ -25,9 +25,9 @@ RUN apt-get install -y openssh-server
 RUN mkdir /var/phabricator
 #USER git
 WORKDIR /var/phabricator
-RUN git clone git://github.com/phacility/libphutil.git
-RUN git clone git://github.com/phacility/arcanist.git
-RUN git clone git://github.com/phacility/phabricator.git
+RUN git clone http://github.com/phacility/libphutil.git
+RUN git clone http://github.com/phacility/arcanist.git
+RUN git clone http://github.com/phacility/phabricator.git
 
 # Expose Nginx on port 80 and 443
 EXPOSE 80
