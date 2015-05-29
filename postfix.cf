@@ -1,0 +1,7 @@
+myhostname = mail.qa.emsym.com
+#mydomain = $myhostname
+myorigin = $mydomain
+#relayhost = $mydomain
+inet_interfaces = loopback-only
+mydestination =
+

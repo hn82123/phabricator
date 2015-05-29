@@ -58,7 +58,7 @@ RUN chown -R phd repo && \
 	chown -R www-data phabricator_files
 
 #RUN apt-get clean && rm -rf /var/lib/apt/lists/*
-
+COPY postfix.cf /etc/postfix/main.cf
 COPY entrypoint.sh /entrypoint.sh
 COPY test_dbms_started.sh /test_dbms_started.sh 
 ENTRYPOINT ["/entrypoint.sh"]

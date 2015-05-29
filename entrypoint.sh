@@ -15,6 +15,7 @@ bin/storage upgrade --force
 bin/phd start
 
 /usr/sbin/sshd -f /etc/ssh/sshd_config.phabricator
+/etc/init.d/postfix start
 /usr/sbin/php5-fpm
 
 exec "$@"
