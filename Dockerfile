@@ -53,8 +53,8 @@ COPY sshd_config.phabricator /etc/ssh/sshd_config.phabricator
 COPY phabricator-ssh-hook.sh /phabricator-ssh-hook.sh
 
 WORKDIR /var
-RUN mkdir repo phabricator_files 
-RUN chown -R phd repo && \
+RUN mkdir -p repo phabricator_files tmp/phd 
+RUN chown -R phd repo tmp/phd && \
 	chown -R www-data phabricator_files
 
 #RUN apt-get clean && rm -rf /var/lib/apt/lists/*
